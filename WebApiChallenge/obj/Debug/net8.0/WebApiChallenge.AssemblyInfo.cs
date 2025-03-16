@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApiChallenge")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd78185884ded608b8853807453ca8dbb25ecb7b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f051ca0c49e4504400a20c468d42cdb1f221336c")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApiChallenge")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApiChallenge")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
