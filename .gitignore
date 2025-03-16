@@ -355,6 +355,10 @@ OpenCover/
 # Azure Stream Analytics local run output
 ASALocalRun/
 
+# Compilation Archives
+bin/
+obj/
+
 # MSBuild Binary and Structured Log
 *.binlog
 
