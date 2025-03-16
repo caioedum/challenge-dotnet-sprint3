@@ -9,5 +9,8 @@
         public string? Estado { get; set; }
         public string? Logradouro { get; set; }
         public string? Bairro { get; set; }
+
+        // Relacionamento
+        public Clinica? Clinica { get; set; }
     }
 }
