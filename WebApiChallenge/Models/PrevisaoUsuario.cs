@@ -17,8 +17,8 @@ namespace WebApiChallenge.Models
         [StringLength(255)]
         public string? PrevisaoTexto { get; set; }
 
-        [Column(TypeName = "float")]
-        public double Probabilidade { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal Probabilidade { get; set; }
 
         [Required]
         [StringLength(255)]
