@@ -88,6 +88,33 @@ namespace WebApiChallenge.Migrations
                 VALUES (5, 'Dr. Pedro Lima', 'Prótese Dentária', '(51) 91234-5678', 'pedro.lima@dentista.com');
             ");
 
+            // Inserts para a classe Clinicas
+            migrationBuilder.Sql(@"
+                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
+                VALUES (1, 'Clínica Odonto Saúde', '(11) 98765-4321');
+            ");
+
+            migrationBuilder.Sql(@"
+                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
+                VALUES (2, 'Clínica Sorriso Feliz', '(21) 91234-5678');
+            ");
+
+            migrationBuilder.Sql(@"
+                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
+                VALUES (3, 'Clínica Dental Care', '(31) 99876-5432');
+            ");
+
+            migrationBuilder.Sql(@"
+                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
+                VALUES (4, 'Clínica Bem Estar', '(41) 98765-4321');
+            ");
+
+            migrationBuilder.Sql(@"
+                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
+                VALUES (5, 'Clínica Vida Dental', '(51) 91234-5678');
+            ");
+
+
             // Inserts para a classe EnderecosUsuarios
             migrationBuilder.Sql(@"
                 INSERT INTO EnderecosUsuarios (UsuarioId, Cep, Cidade, Estado, Logradouro, Bairro)
@@ -140,32 +167,7 @@ namespace WebApiChallenge.Migrations
                 VALUES (5, 'https://example.com/imagens/usuario5.jpg', SYSDATE);
             ");
 
-            // Inserts para a classe Clinicas
-            migrationBuilder.Sql(@"
-                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
-                VALUES (1, 'Clínica Odonto Saúde', '(11) 98765-4321');
-            ");
-
-            migrationBuilder.Sql(@"
-                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
-                VALUES (2, 'Clínica Sorriso Feliz', '(21) 91234-5678');
-            ");
-
-            migrationBuilder.Sql(@"
-                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
-                VALUES (3, 'Clínica Dental Care', '(31) 99876-5432');
-            ");
-
-            migrationBuilder.Sql(@"
-                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
-                VALUES (4, 'Clínica Bem Estar', '(41) 98765-4321');
-            ");
-
-            migrationBuilder.Sql(@"
-                INSERT INTO Clinicas (DentistaId, Nome, Telefone)
-                VALUES (5, 'Clínica Vida Dental', '(51) 91234-5678');
-            ");
-
+            
             // Inserts para a classe PrevisoesUsuarios
             migrationBuilder.Sql(@"
                 INSERT INTO PrevisoesUsuarios (ImagemUsuarioId, UsuarioId, PrevisaoTexto, Probabilidade, Recomendacao, DataPrevisao)
@@ -248,33 +250,28 @@ namespace WebApiChallenge.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            // Delete para a classe Usuarios
-            migrationBuilder.Sql("DELETE FROM Usuarios WHERE Cpf IN ('12345678901', '98765432100', '45678912300', '32165498700', '65498732100');");
+            migrationBuilder.Sql("DELETE FROM EnderecosClinicas WHERE ClinicaId IN (1, 2, 3, 4, 5);");
 
-            // Delete para a classe ContatosUsuarios
-            migrationBuilder.Sql("DELETE FROM ContatosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
+            // Excluir dados da tabela AtendimentosUsuarios
+            migrationBuilder.Sql("DELETE FROM AtendimentosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
 
-            // Delete para a classe Dentistas
-            migrationBuilder.Sql("DELETE FROM Dentistas WHERE UsuarioId IN (1, 2, 3, 4, 5);");
-
-            // Delete para a classe EnderecosUsuarios
-            migrationBuilder.Sql("DELETE FROM EnderecosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
+            // Excluir dados da tabela PrevisoesUsuarios
+            migrationBuilder.Sql("DELETE FROM PrevisoesUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
 
             // Delete para a classe ImagensUsuarios
             migrationBuilder.Sql("DELETE FROM ImagensUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
 
+            // Delete para a classe EnderecosUsuarios
+            migrationBuilder.Sql("DELETE FROM EnderecosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
+
             // Delete para a classe Dentistas
             migrationBuilder.Sql("DELETE FROM Clinicas WHERE DentistaId IN (1, 2, 3, 4, 5);");
 
-            // Delete para a classe PrevisoesUsuarios
-            migrationBuilder.Sql("DELETE FROM PrevisoesUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
+            // Delete para a classe ContatosUsuarios
+            migrationBuilder.Sql("DELETE FROM ContatosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
 
-            // Delete para a classe AtendimentosUsuarios
-            migrationBuilder.Sql("DELETE FROM AtendimentosUsuarios WHERE UsuarioId IN (1, 2, 3, 4, 5);");
-
-            // Delete para a classe EnderecosClinicas
-            migrationBuilder.Sql("DELETE FROM EnderecosClinicas WHERE ClinicaId IN (1, 2, 3, 4, 5);");
-
+            // Delete para a classe Usuarios
+            migrationBuilder.Sql("DELETE FROM Usuarios WHERE Cpf IN ('12345678901', '98765432100', '45678912300', '32165498700', '65498732100');");
         }
     }
 }
