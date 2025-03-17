@@ -12,8 +12,8 @@ using WebApiChallenge.Context;
 namespace WebApiChallenge.Migrations
 {
     [DbContext(typeof(WebApiDbContext))]
-    [Migration("20250317060551_ThirdMigration")]
-    partial class ThirdMigration
+    [Migration("20250317222340_DataPopulation")]
+    partial class DataPopulation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
