@@ -1,4 +1,6 @@
-﻿namespace WebApiChallenge.Models
+﻿using System.Collections.ObjectModel;
+
+namespace WebApiChallenge.Models
 {
     public class ImagemUsuario
     {
@@ -10,5 +12,10 @@
         // Relacionamentos
         public Usuario? Usuario { get; set; }
         public ICollection<PrevisaoUsuario>? PrevisoesUsuarios { get; set; }
+
+        public ImagemUsuario()
+        {
+            PrevisoesUsuarios = new Collection<PrevisaoUsuario>();
+        }
     }
 }

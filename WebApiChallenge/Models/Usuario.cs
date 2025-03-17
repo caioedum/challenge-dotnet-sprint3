@@ -1,4 +1,6 @@
-﻿namespace WebApiChallenge.Models
+﻿using System.Collections.ObjectModel;
+
+namespace WebApiChallenge.Models
 {
     public class Usuario
     {
@@ -17,5 +19,14 @@
         public ICollection<AtendimentoUsuario>? Atendimentos { get; set; }
         public ICollection<PrevisaoUsuario>? Previsoes { get; set; }
         public Dentista? Dentista { get; set; }
+
+        public Usuario()
+        {
+            Contatos = new Collection<ContatoUsuario>();
+            Enderecos = new Collection<EnderecoUsuario>();
+            Imagens = new Collection<ImagemUsuario>();
+            Atendimentos = new Collection<AtendimentoUsuario>();
+            Previsoes = new Collection<PrevisaoUsuario>();
+        }
     }
 }
