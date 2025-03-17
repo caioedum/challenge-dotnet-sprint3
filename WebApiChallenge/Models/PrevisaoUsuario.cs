@@ -5,7 +5,7 @@ namespace WebApiChallenge.Models
     public class PrevisaoUsuario
     {
         public int PrevisaoUsuarioId { get; set; }
-        public int ImagemId { get; set; }
+        public int ImagemUsuarioId { get; set; }
         public int? UsuarioId { get; set; }
         public string? PrevisaoTexto { get; set; }
         [Column(TypeName = "float")]
