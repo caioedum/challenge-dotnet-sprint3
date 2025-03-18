@@ -7,6 +7,7 @@ namespace WebApiChallenge.Models
     public class AtendimentoUsuario
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AtendimentoUsuarioId { get; set; }
 
         public int? UsuarioId { get; set; }

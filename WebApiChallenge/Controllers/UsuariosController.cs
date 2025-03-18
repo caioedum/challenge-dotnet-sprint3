@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApiChallenge.Context;
+using WebApiChallenge.DTO;
 using WebApiChallenge.Models;
 
 namespace WebApiChallenge.Controllers
@@ -41,12 +42,22 @@ namespace WebApiChallenge.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(Usuario usuario)
+        public ActionResult Post(UsuarioCreateDTO usuarioDto)
         {
-            if (usuario is null)
+            if (usuarioDto is null)
             {
                 return BadRequest();
             }
+
+            var usuario = new Usuario
+            {
+                Cpf = usuarioDto.Cpf,
+                Nome = usuarioDto.Nome,
+                Sobrenome = usuarioDto.Sobrenome,
+                DataNascimento = usuarioDto.DataNascimento,
+                Genero = usuarioDto.Genero,
+                DataCadastro = DateTime.Now
+            };
 
             _context.Usuarios.Add(usuario);
             _context.SaveChanges();

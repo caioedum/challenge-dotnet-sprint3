@@ -7,6 +7,7 @@ namespace WebApiChallenge.Models
     public class EnderecoClinica
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EnderecoClinicaId { get; set; }
 
         public int? ClinicaId { get; set; }

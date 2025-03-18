@@ -7,6 +7,7 @@ namespace WebApiChallenge.Models
     public class PrevisaoUsuario
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PrevisaoUsuarioId { get; set; }
 
         public int? ImagemUsuarioId { get; set; }

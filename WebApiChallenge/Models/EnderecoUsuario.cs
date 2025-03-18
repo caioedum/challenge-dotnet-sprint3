@@ -7,6 +7,7 @@ namespace WebApiChallenge.Models
     public class EnderecoUsuario
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int EnderecoUsuarioId { get; set; }
 
         public int? UsuarioId { get; set; }

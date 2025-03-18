@@ -8,6 +8,7 @@ namespace WebApiChallenge.Models
     public class Dentista
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DentistaId { get; set; }
 
         public int? UsuarioId { get; set; }
