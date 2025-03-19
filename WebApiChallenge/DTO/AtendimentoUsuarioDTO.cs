@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace WebApiChallenge.Models
+﻿namespace WebApiChallenge.DTO
 {
-    public class AtendimentoUsuario
+    public class AtendimentoUsuarioDTO
     {
         public int AtendimentoUsuarioId { get; set; }
 
@@ -20,10 +17,5 @@ namespace WebApiChallenge.Models
         public decimal? Custo { get; set; }
 
         public DateTime? DataRegistro { get; set; }
-
-        // Relacionamentos
-        public Usuario? Usuario { get; set; }
-        public Dentista? Dentista { get; set; }
-        public Clinica? Clinica { get; set; }
     }
 }
