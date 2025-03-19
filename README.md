@@ -53,25 +53,25 @@ Certifique-se de ter instalado:
 
 ## 📄 Passos para Execução
 
-1️⃣ Clone o repositório:
-
+**1️⃣ Clone o repositório:**
+```
 git clone https://github.com/seu-repositorio/challenge-dotnet.git
 cd challenge-dotnet
-
-2️⃣ Restaurar pacotes NuGet:
-
+```
+**2️⃣ Restaurar pacotes NuGet:**
+```
 dotnet restore
-
-4️⃣ Rodar a API:
-
+```
+**4️⃣ Rodar a API:**
+```
 dotnet run
-
-6️⃣ Acesse a API no navegador ou via Postman:
-
+```
+**6️⃣ Acesse a API no navegador ou via Postman:**
+```
 🔗 Endpoint padrão: http://localhost:5000
-
-📜 Documentação Swagger: http://localhost:5000/swagger
+```
+### 📜 Documentação Swagger: http://localhost:5000/swagger
 
 ## 📜 Licença
 
-📝 Este projeto é de uso acadêmico e segue as diretrizes estabelecidas pela FIAP.
+-- 📝 Este projeto é de uso acadêmico e segue as diretrizes estabelecidas pela FIAP.
