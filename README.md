@@ -66,7 +66,7 @@ dotnet run
 
 - **🔗 Endpoint padrão:**
 ```
-http://localhost:5000
+https://localhost:7185
 ```
 - **📜 Documentação Swagger:**
 ```
