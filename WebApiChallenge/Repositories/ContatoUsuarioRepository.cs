@@ -42,7 +42,6 @@ namespace WebApiChallenge.Repositories
             return contatos;
         }
 
-
         public ContatoUsuario? ObterPorId(int id)
         {
             ContatoUsuario? contato = null;

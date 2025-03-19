@@ -65,6 +65,19 @@ namespace WebApiChallenge.Repositories
 
             return null;
         }
+        public bool VerificarImagemPorId(int imagemId)
+        {
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                connection.Open();
+
+                using (var command = new OracleCommand("SELECT COUNT(1) FROM t_imagem_usuario_odontoprev WHERE imagem_usuario_id = :id", connection))
+                {
+                    command.Parameters.Add(new OracleParameter("id", imagemId));
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
 
         public bool VerificarUsuarioPorId(int usuarioId)
         {
@@ -91,20 +104,16 @@ namespace WebApiChallenge.Repositories
             VALUES (:imagem_usuario_id, :usuario_id, :previsao_texto, :probabilidade, :recomendacao)
             RETURNING previsao_usuario_id INTO :id", connection);
 
-            
-            
-            command.Parameters.Add(new OracleParameter("previsao_texto", previsao.PrevisaoTexto));
-            command.Parameters.Add(new OracleParameter("imagem_usuario_id", previsao.ImagemId.HasValue ? (object)previsao.ImagemId.Value : DBNull.Value));
-            command.Parameters.Add(new OracleParameter("usuario_id", previsao.UsuarioId.HasValue ? (object)previsao.UsuarioId.Value : DBNull.Value));
-            command.Parameters.Add(new OracleParameter("probabilidade", previsao.Probabilidade.HasValue ? (object)previsao.Probabilidade.Value : DBNull.Value));
-            command.Parameters.Add(new OracleParameter("recomendacao", previsao.Recomendacao));
+            command.Parameters.Add(new OracleParameter("imagem_usuario_id", previsao.ImagemId));
+            command.Parameters.Add(new OracleParameter("usuario_id", previsao.UsuarioId));
+            command.Parameters.Add(new OracleParameter("previsao_texto", previsao.PrevisaoTexto ?? (object)DBNull.Value));
+            command.Parameters.Add(new OracleParameter("probabilidade", previsao.Probabilidade));
+            command.Parameters.Add(new OracleParameter("recomendacao", previsao.Recomendacao ?? (object)DBNull.Value));
 
             var idParam = new OracleParameter("id", OracleDbType.Int32) { Direction = System.Data.ParameterDirection.Output };
             command.Parameters.Add(idParam);
 
             command.ExecuteNonQuery();
-
-            previsao.PrevisaoId = Convert.ToInt32(idParam.Value);
         }
 
         public void AtualizarPrevisao(Previsao previsao)
@@ -121,10 +130,10 @@ namespace WebApiChallenge.Repositories
               recomendacao = :recomendacao
             WHERE previsao_usuario_id = :id", connection);
 
-            command.Parameters.Add(new OracleParameter("imagem_usuario_id", (object)previsao.ImagemId ?? DBNull.Value));
-            command.Parameters.Add(new OracleParameter("usuario_id", (object)previsao.UsuarioId ?? DBNull.Value));
+            command.Parameters.Add(new OracleParameter("imagem_usuario_id", previsao.ImagemId.HasValue ? (object)previsao.ImagemId.Value : DBNull.Value));
+            command.Parameters.Add(new OracleParameter("usuario_id", previsao.UsuarioId.HasValue ? (object)previsao.UsuarioId.Value : DBNull.Value));
             command.Parameters.Add(new OracleParameter("previsao_texto", previsao.PrevisaoTexto));
-            command.Parameters.Add(new OracleParameter("probabilidade", (object)previsao.Probabilidade ?? DBNull.Value));
+            command.Parameters.Add(new OracleParameter("probabilidade", previsao.Probabilidade.HasValue ? (object)previsao.Probabilidade.Value : DBNull.Value));
             command.Parameters.Add(new OracleParameter("recomendacao", previsao.Recomendacao));
             command.Parameters.Add(new OracleParameter("id", previsao.PrevisaoId));
 

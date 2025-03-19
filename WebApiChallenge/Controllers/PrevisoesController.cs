@@ -83,6 +83,11 @@ namespace WebApiChallenge.Controllers
                 return NotFound(new { Mensagem = "Usuário não encontrado.", UsuarioId = previsaoCreateDto.UsuarioId });
             }
 
+            if (!_repository.VerificarImagemPorId(previsaoCreateDto.ImagemId))
+            {
+                return NotFound(new { Mensagem = "Imagem não encontrado.", ImagemId = previsaoCreateDto.ImagemId });
+            }
+
             var previsao = new Previsao
             {
                 UsuarioId = previsaoCreateDto.UsuarioId,
@@ -90,7 +95,7 @@ namespace WebApiChallenge.Controllers
                 PrevisaoTexto = previsaoCreateDto.PrevisaoTexto,
                 Probabilidade = previsaoCreateDto.Probabilidade,
                 Recomendacao = previsaoCreateDto.Recomendacao,
-                DataPrevisao = previsaoCreateDto.DataPrevisao ?? DateTime.Now
+                DataPrevisao = previsaoCreateDto.DataPrevisao
             };
 
             _repository.AdicionarPrevisao(previsao);

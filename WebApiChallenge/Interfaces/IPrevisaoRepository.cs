@@ -6,6 +6,7 @@ namespace WebApiChallenge.Interfaces
     {
         public List<Previsao> ObterTodos();
         public Previsao? ObterPorId(int previsaoId);
+        public bool VerificarImagemPorId(int imagemId);
         public bool VerificarUsuarioPorId(int usuarioId);
         public void AdicionarPrevisao(Previsao previsao);
         public void AtualizarPrevisao(Previsao previsao);
