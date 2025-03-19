@@ -27,9 +27,7 @@ A API segue uma arquitetura monolítica, onde todas as funcionalidades estão co
    - Abstração da camada de acesso a dados para facilitar testes e manutenção.
 2. **Singleton**:
    - Garantia de que certas instâncias (como configuração do banco) sejam únicas durante o ciclo de vida da aplicação.
-3. **Factory Method**:
-   - Criação dinâmica de objetos para maior flexibilidade.
-4. **Dependency Injection**:
+3. **Dependency Injection**:
    - Redução do acoplamento entre componentes por meio da injeção de dependências.
 
 ## 🛠 Tecnologias Utilizadas
@@ -46,8 +44,6 @@ A API segue uma arquitetura monolítica, onde todas as funcionalidades estão co
 Certifique-se de ter instalado:
 
 - ✅ .NET 8 SDK
-
-- ✅ Oracle Database configurado
 
 - ✅ Visual Studio ou VS Code
 
