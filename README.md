@@ -79,4 +79,4 @@ http://localhost:5000/swagger
 
 ## 📜 Licença
 
-- 📝 Este projeto é de uso acadêmico e segue as diretrizes estabelecidas pela FIAP.
+- 📝 Este projeto é de uso acadêmico - FIAP.
