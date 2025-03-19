@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Data;
 using Oracle.ManagedDataAccess.Client;
+using WebApiChallenge.Interfaces;
 using WebApiChallenge.Models;
 
 namespace WebApiChallenge.Repositories
 {
-    public class UsuarioRepository
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly string _connectionString;
 
@@ -15,7 +16,7 @@ namespace WebApiChallenge.Repositories
             _connectionString = configuration.GetConnectionString("OracleConnection") ?? throw new ArgumentNullException(nameof(configuration), "Connection string cannot be null");
         }
 
-        public List<Usuario> GetAll()
+        public List<Usuario> ObterTodos()
         {
             var usuarios = new List<Usuario>();
 
@@ -47,7 +48,7 @@ namespace WebApiChallenge.Repositories
             return usuarios;
         }
 
-        public Usuario? GetById(int usuarioId)
+        public Usuario? ObterPorId(int usuarioId)
         {
             Usuario? usuario = null;
 
@@ -81,7 +82,7 @@ namespace WebApiChallenge.Repositories
             return usuario;
         }
 
-        public void Add(Usuario usuario)
+        public void AdicionarUsuario(Usuario usuario)
         {
             using (var connection = new OracleConnection(_connectionString))
             {
@@ -99,12 +100,13 @@ namespace WebApiChallenge.Repositories
                     command.Parameters.Add(new OracleParameter("data_nascimento", usuario.DataNascimento ?? (object)DBNull.Value));
                     command.Parameters.Add(new OracleParameter("genero", usuario.Genero));
                     command.Parameters.Add(new OracleParameter("data_cadastro", usuario.DataCadastro ?? DateTime.Now));
+
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public void Update(Usuario usuario)
+        public void AtualizarUsuario(Usuario usuario)
         {
             using (var connection = new OracleConnection(_connectionString))
             {

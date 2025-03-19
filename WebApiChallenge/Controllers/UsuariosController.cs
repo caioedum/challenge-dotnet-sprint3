@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApiChallenge.DTO;
+using WebApiChallenge.Interfaces;
 using WebApiChallenge.Models;
 using WebApiChallenge.Repositories;
 
@@ -7,9 +9,9 @@ using WebApiChallenge.Repositories;
 [Route("api/[controller]")]
 public class UsuariosController : ControllerBase
 {
-    private readonly UsuarioRepository _repository;
+    private readonly IUsuarioRepository _repository;
 
-    public UsuariosController(UsuarioRepository repository)
+    public UsuariosController(IUsuarioRepository repository)
     {
         _repository = repository;
     }
@@ -17,7 +19,7 @@ public class UsuariosController : ControllerBase
     [HttpGet]
     public IActionResult Get()
     {
-        var usuarios = _repository.GetAll();
+        var usuarios = _repository.ObterTodos();
 
         if (usuarios == null) return NotFound("Nenhum usuário encontrado.");
 
@@ -39,7 +41,7 @@ public class UsuariosController : ControllerBase
     [HttpGet("{id:int}")]
     public IActionResult Get(int id)
     {
-        var usuario = _repository.GetById(id);
+        var usuario = _repository.ObterPorId(id);
 
         if (usuario == null)
         {
@@ -78,7 +80,8 @@ public class UsuariosController : ControllerBase
             DataCadastro = usuarioCreateDto.DataCadastro ?? DateTime.Now
         };
 
-        _repository.Add(usuario);
+        _repository.AdicionarUsuario(usuario);
+
         return CreatedAtAction(nameof(Get), new { id = usuario.UsuarioId }, usuario);
     }
 
@@ -90,7 +93,7 @@ public class UsuariosController : ControllerBase
             return BadRequest("Dados inválidos.");
         }
 
-        var usuarioExistente = _repository.GetById(id);
+        var usuarioExistente = _repository.ObterPorId(id);
 
         if (usuarioExistente == null)
         {
@@ -103,7 +106,7 @@ public class UsuariosController : ControllerBase
         usuarioExistente.DataNascimento = usuarioCreateDto.DataNascimento;
         usuarioExistente.Genero = usuarioCreateDto.Genero;
 
-        _repository.Update(usuarioExistente);
+        _repository.AtualizarUsuario(usuarioExistente);
         return NoContent();
     }
 }
