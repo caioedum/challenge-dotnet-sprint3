@@ -62,11 +62,7 @@ cd challenge-dotnet
 
 dotnet restore
 
-4️⃣ Executar as migrações do banco de dados:
-
-dotnet ef database update
-
-5️⃣ Rodar a API:
+4️⃣ Rodar a API:
 
 dotnet run
 
