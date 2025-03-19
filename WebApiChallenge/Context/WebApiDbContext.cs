@@ -9,15 +9,15 @@ namespace WebApiChallenge.Context
         {
         }
 
-        public DbSet<AtendimentoUsuario> AtendimentosUsuarios { get; set; }
-        public DbSet<Clinica> Clinicas { get; set; }
-        public DbSet<ContatoUsuario> ContatosUsuarios { get; set; }
-        public DbSet<Dentista> Dentistas { get; set; }
-        public DbSet<EnderecoClinica> EnderecosClinicas { get; set; }
-        public DbSet<EnderecoUsuario> EnderecosUsuarios { get; set; }
-        public DbSet<ImagemUsuario> ImagensUsuarios { get; set; }
-        public DbSet<PrevisaoUsuario> PrevisoesUsuarios { get; set; }
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<AtendimentoUsuario> T_ATENDIMENTO_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<Clinica> T_CLINICA_ODONTOPREV { get; set; }
+        public DbSet<ContatoUsuario> T_CONTATO_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<Dentista> T_DENTISTA_ODONTOPREV { get; set; }
+        public DbSet<EnderecoClinica> T_ENDERECO_CLINICA_ODONTOPREV { get; set; }
+        public DbSet<EnderecoUsuario> T_ENDERECO_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<ImagemUsuario> T_IMAGEM_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<PrevisaoUsuario> T_PREVISAO_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<Usuario> T_USUARIO_ODONTOPREV { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

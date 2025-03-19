@@ -14,11 +14,11 @@ namespace WebApiChallenge.Models
 
         public string? Sobrenome { get; set; }
 
-        public DateTime DataNascimento { get; set; }
+        public DateTime? DataNascimento { get; set; }
 
-        public char? Genero { get; set; }
+        public string? Genero { get; set; }
 
-        public DateTime DataCadastro { get; set; } = DateTime.Now;
+        public DateTime? DataCadastro { get; set; }
 
         // Relacionamentos
         public ICollection<ContatoUsuario>? Contatos { get; set; }
