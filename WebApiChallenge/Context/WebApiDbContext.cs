@@ -21,13 +21,12 @@ namespace WebApiChallenge.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Usuario>().ToTable("T_USUARIO_ODONTOPREV");
             modelBuilder.Entity<Usuario>()
                 .Property(u => u.UsuarioId)
                 .ValueGeneratedOnAdd();
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }

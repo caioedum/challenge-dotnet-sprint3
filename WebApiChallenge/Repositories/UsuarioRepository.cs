@@ -12,10 +12,9 @@ namespace WebApiChallenge.Repositories
 
         public UsuarioRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("OracleConnection");
+            _connectionString = configuration.GetConnectionString("OracleConnection") ?? throw new ArgumentNullException(nameof(configuration), "Connection string cannot be null");
         }
 
-        // Método para buscar todos os usuários
         public List<Usuario> GetAll()
         {
             var usuarios = new List<Usuario>();
@@ -48,10 +47,9 @@ namespace WebApiChallenge.Repositories
             return usuarios;
         }
 
-        // Método para buscar um usuário por ID
-        public Usuario GetById(int usuarioId)
+        public Usuario? GetById(int usuarioId)
         {
-            Usuario usuario = null;
+            Usuario? usuario = null;
 
             using (var connection = new OracleConnection(_connectionString))
             {
@@ -83,7 +81,6 @@ namespace WebApiChallenge.Repositories
             return usuario;
         }
 
-        // Método para adicionar um novo usuário
         public void Add(Usuario usuario)
         {
             using (var connection = new OracleConnection(_connectionString))
@@ -102,13 +99,11 @@ namespace WebApiChallenge.Repositories
                     command.Parameters.Add(new OracleParameter("data_nascimento", usuario.DataNascimento ?? (object)DBNull.Value));
                     command.Parameters.Add(new OracleParameter("genero", usuario.Genero));
                     command.Parameters.Add(new OracleParameter("data_cadastro", usuario.DataCadastro ?? DateTime.Now));
-
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        // Método para atualizar um usuário existente
         public void Update(Usuario usuario)
         {
             using (var connection = new OracleConnection(_connectionString))
@@ -128,23 +123,6 @@ namespace WebApiChallenge.Repositories
                     command.Parameters.Add(new OracleParameter("data_nascimento", usuario.DataNascimento ?? (object)DBNull.Value));
                     command.Parameters.Add(new OracleParameter("genero", usuario.Genero));
                     command.Parameters.Add(new OracleParameter("usuario_id", usuario.UsuarioId));
-
-                    command.ExecuteNonQuery();
-                }
-            }
-        }
-
-        // Método para excluir um usuário por ID
-        public void Delete(int usuarioId)
-        {
-            using (var connection = new OracleConnection(_connectionString))
-            {
-                connection.Open();
-
-                using (var command = new OracleCommand("DELETE FROM t_usuario_odontoprev WHERE usuario_id = :usuario_id", connection))
-                {
-                    command.Parameters.Add(new OracleParameter("usuario_id", usuarioId));
-
                     command.ExecuteNonQuery();
                 }
             }
