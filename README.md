@@ -1,6 +1,6 @@
 # challenge-dotnet-sprint3
  
-🦷 ChallengeDotnet - API Monolítica em .NET 8
+🦷 ChallengeDotnet - ASP.NET Core Web API - Parrot Tech
 
 👥 Integrantes do Grupo
 
