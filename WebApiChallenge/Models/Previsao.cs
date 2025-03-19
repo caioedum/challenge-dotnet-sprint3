@@ -13,11 +13,11 @@ namespace WebApiChallenge.Models
 
         public string? PrevisaoTexto { get; set; }
 
-        public decimal Probabilidade { get; set; }
+        public float? Probabilidade { get; set; }
 
         public string? Recomendacao { get; set; }
 
-        public DateTime DataPrevisao { get; set; } = DateTime.Now;
+        public DateTime? DataPrevisao { get; set; }
 
         // Relacionamentos
         public Imagem? Imagem { get; set; }
