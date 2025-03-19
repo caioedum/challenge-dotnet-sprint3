@@ -87,6 +87,32 @@ namespace WebApiChallenge.Repositories
             }
         }
 
+        public bool EmailJaCadastrado(string email)
+        {
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new OracleCommand("SELECT COUNT(1) FROM t_contato_usuario_odontoprev WHERE email_usuario = :email", connection))
+                {
+                    command.Parameters.Add(new OracleParameter("email", email));
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
+        public bool TelefoneJaCadastrado(string telefone)
+        {
+            using (var connection = new OracleConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new OracleCommand("SELECT COUNT(1) FROM t_contato_usuario_odontoprev WHERE telefone_usuario = :telefone", connection))
+                {
+                    command.Parameters.Add(new OracleParameter("telefone", telefone));
+                    return Convert.ToInt32(command.ExecuteScalar()) > 0;
+                }
+            }
+        }
+
         public void AdicionarContato(ContatoUsuario contato)
         {
             using (var connection = new OracleConnection(_connectionString))
@@ -107,7 +133,6 @@ namespace WebApiChallenge.Repositories
                 }
             }
         }
-
         public void AtualizarContato(ContatoUsuario contato)
         {
             using (var connection = new OracleConnection(_connectionString))

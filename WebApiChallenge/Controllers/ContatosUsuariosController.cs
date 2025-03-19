@@ -65,17 +65,20 @@ namespace WebApiChallenge.Controllers
         [SwaggerResponse(201, "Contato criado com sucesso.", typeof(ContatoUsuario))]
         [SwaggerResponse(400, "A solicitação é inválida.")]
         [SwaggerResponse(404, "Usuário não encontrado.")]
+        [SwaggerResponse(409, "Telefone ou e-mail já cadastrados.")]
         public IActionResult Post([FromBody] ContatoUsuarioCreateDTO contatoCreateDto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             if (!_repository.VerificarUsuarioPorId(contatoCreateDto.UsuarioId))
-            {
                 return NotFound(new { Mensagem = "Usuário não encontrado.", UsuarioId = contatoCreateDto.UsuarioId });
-            }
+
+            if (_repository.EmailJaCadastrado(contatoCreateDto.EmailUsuario))
+                return Conflict(new { Mensagem = "E-mail já cadastrado.", Email = contatoCreateDto.EmailUsuario });
+
+            if (_repository.TelefoneJaCadastrado(contatoCreateDto.TelefoneUsuario))
+                return Conflict(new { Mensagem = "Telefone já cadastrado.", Telefone = contatoCreateDto.TelefoneUsuario });
 
             var contato = new ContatoUsuario
             {
@@ -90,6 +93,7 @@ namespace WebApiChallenge.Controllers
 
             return CreatedAtAction(nameof(Get), new { id = contato.ContatoUsuarioId }, contato);
         }
+
 
         [HttpPut("{id:int}")]
         public IActionResult Put(int id, [FromBody] ContatoUsuarioCreateDTO contatoCreateDto)
