@@ -20,6 +20,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<WebApiDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("OracleConnection")));
 
+builder.Services.AddSwaggerGen(c =>
+{
+    c.EnableAnnotations();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
