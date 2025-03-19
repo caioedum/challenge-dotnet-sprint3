@@ -18,8 +18,8 @@ A API segue uma arquitetura monolítica, onde todas as funcionalidades estão co
 
 ## 🔍 Principais características:
 
-✅ Comunicação direta com Oracle Database para operações CRUD.
-✅ Aplicação centralizada sem dependência de microsserviços.
+- ✅ Comunicação direta com Oracle Database para operações CRUD.
+- ✅ Aplicação centralizada sem dependência de microsserviços.
 
 ## 🎨 Design Patterns Utilizados
 
