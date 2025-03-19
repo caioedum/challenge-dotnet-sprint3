@@ -70,7 +70,7 @@ https://localhost:7185
 ```
 - **📜 Documentação Swagger:**
 ```
-http://localhost:5000/swagger
+https://localhost:7185/swagger/index.html
 ```
 
 ## 📜 Licença
