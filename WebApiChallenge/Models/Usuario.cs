@@ -23,18 +23,18 @@ namespace WebApiChallenge.Models
         // Relacionamentos
         public ICollection<ContatoUsuario>? Contatos { get; set; }
         public ICollection<EnderecoUsuario>? Enderecos { get; set; }
-        public ICollection<ImagemUsuario>? Imagens { get; set; }
+        public ICollection<Imagem>? Imagens { get; set; }
         public ICollection<AtendimentoUsuario>? Atendimentos { get; set; }
-        public ICollection<PrevisaoUsuario>? Previsoes { get; set; }
+        public ICollection<Previsao>? Previsoes { get; set; }
         public Dentista? Dentista { get; set; }
 
         public Usuario()
         {
             Contatos = new Collection<ContatoUsuario>();
             Enderecos = new Collection<EnderecoUsuario>();
-            Imagens = new Collection<ImagemUsuario>();
+            Imagens = new Collection<Imagem>();
             Atendimentos = new Collection<AtendimentoUsuario>();
-            Previsoes = new Collection<PrevisaoUsuario>();
+            Previsoes = new Collection<Previsao>();
         }
     }
 }

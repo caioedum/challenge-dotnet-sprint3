@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
-    public class ImagemUsuario
+    public class Imagem
     {
-        public int ImagemUsuarioId { get; set; }
+        public int ImagemId { get; set; }
 
         public int? UsuarioId { get; set; }
 
@@ -16,11 +16,11 @@ namespace WebApiChallenge.Models
 
         // Relacionamentos
         public Usuario? Usuario { get; set; }
-        public ICollection<PrevisaoUsuario>? PrevisoesUsuarios { get; set; }
+        public ICollection<Previsao>? Previsoes { get; set; }
 
-        public ImagemUsuario()
+        public Imagem()
         {
-            PrevisoesUsuarios = new Collection<PrevisaoUsuario>();
+            Previsoes = new Collection<Previsao>();
         }
     }
 }

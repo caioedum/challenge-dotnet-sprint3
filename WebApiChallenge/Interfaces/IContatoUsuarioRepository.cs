@@ -2,7 +2,7 @@
 
 namespace WebApiChallenge.Interfaces
 {
-    public interface IContatoUsuario
+    public interface IContatoUsuarioRepository
     {
         public List<ContatoUsuario> ObterTodos();
         public ContatoUsuario? ObterPorId(int contatoId);

@@ -15,8 +15,8 @@ namespace WebApiChallenge.Context
         public DbSet<Dentista> T_DENTISTA_ODONTOPREV { get; set; }
         public DbSet<EnderecoClinica> T_ENDERECO_CLINICA_ODONTOPREV { get; set; }
         public DbSet<EnderecoUsuario> T_ENDERECO_USUARIO_ODONTOPREV { get; set; }
-        public DbSet<ImagemUsuario> T_IMAGEM_USUARIO_ODONTOPREV { get; set; }
-        public DbSet<PrevisaoUsuario> T_PREVISAO_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<Imagem> T_IMAGEM_USUARIO_ODONTOPREV { get; set; }
+        public DbSet<Previsao> T_PREVISAO_USUARIO_ODONTOPREV { get; set; }
         public DbSet<Usuario> T_USUARIO_ODONTOPREV { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

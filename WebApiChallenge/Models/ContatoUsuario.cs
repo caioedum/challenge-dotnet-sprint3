@@ -9,9 +9,9 @@ namespace WebApiChallenge.Models
 
         public int? UsuarioId { get; set; }
 
-        public string? Email { get; set; }
+        public string? EmailUsuario { get; set; }
 
-        public string? Telefone { get; set; }
+        public string? TelefoneUsuario { get; set; }
 
         // Relacionamento
         public Usuario? Usuario { get; set; }

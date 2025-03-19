@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IDentistaRepository, DentistaRepository>();
 builder.Services.AddScoped<IAtendimentoUsuarioRepository, AtendimentoUsuarioRepository>();
+builder.Services.AddScoped<IContatoUsuarioRepository, ContatoUsuarioRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

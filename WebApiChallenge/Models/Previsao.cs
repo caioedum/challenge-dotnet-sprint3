@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
-    public class PrevisaoUsuario
+    public class Previsao
     {
-        public int PrevisaoUsuarioId { get; set; }
+        public int PrevisaoId { get; set; }
 
-        public int? ImagemUsuarioId { get; set; }
+        public int? ImagemId { get; set; }
 
         public int? UsuarioId { get; set; }
 
@@ -20,7 +20,7 @@ namespace WebApiChallenge.Models
         public DateTime DataPrevisao { get; set; } = DateTime.Now;
 
         // Relacionamentos
-        public ImagemUsuario? ImagemUsuario { get; set; }
+        public Imagem? Imagem { get; set; }
         public Usuario? Usuario { get; set; }
     }
 }
