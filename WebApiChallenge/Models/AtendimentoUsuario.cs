@@ -3,11 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
-    [Table("AtendimentosUsuarios")]
     public class AtendimentoUsuario
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AtendimentoUsuarioId { get; set; }
 
         public int? UsuarioId { get; set; }
@@ -18,11 +15,8 @@ namespace WebApiChallenge.Models
 
         public DateTime DataAtendimento { get; set; }
 
-        [Required]
-        [StringLength(200)]
         public string? DescricaoProcedimento { get; set; }
 
-        [Column(TypeName = "decimal(10, 2)")]
         public decimal Custo { get; set; }
 
         public DateTime DataRegistro { get; set; } = DateTime.Now;

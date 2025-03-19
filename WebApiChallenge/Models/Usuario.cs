@@ -4,29 +4,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
-    [Table("Usuarios")]
     public class Usuario
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UsuarioId { get; set; }
 
-        [Required]
-        [StringLength(11)]
         public string? Cpf { get; set; }
 
-        [Required]
-        [StringLength(80)]
         public string? Nome { get; set; }
 
-        [Required]
-        [StringLength(80)]
         public string? Sobrenome { get; set; }
 
         public DateTime DataNascimento { get; set; }
 
-        [Required]
-        [StringLength(1)]
         public char? Genero { get; set; }
 
         public DateTime DataCadastro { get; set; } = DateTime.Now;

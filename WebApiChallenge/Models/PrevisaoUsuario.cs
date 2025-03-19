@@ -3,26 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebApiChallenge.Models
 {
-    [Table("PrevisoesUsuarios")]
     public class PrevisaoUsuario
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PrevisaoUsuarioId { get; set; }
 
         public int? ImagemUsuarioId { get; set; }
 
         public int? UsuarioId { get; set; }
 
-        [Required]
-        [StringLength(255)]
         public string? PrevisaoTexto { get; set; }
 
-        [Column(TypeName = "decimal(10,2)")]
         public decimal Probabilidade { get; set; }
 
-        [Required]
-        [StringLength(255)]
         public string? Recomendacao { get; set; }
 
         public DateTime DataPrevisao { get; set; } = DateTime.Now;

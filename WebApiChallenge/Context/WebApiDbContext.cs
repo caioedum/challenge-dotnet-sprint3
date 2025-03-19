@@ -8,6 +8,7 @@ namespace WebApiChallenge.Context
         public WebApiDbContext(DbContextOptions<WebApiDbContext> options) : base(options)
         {
         }
+
         public DbSet<AtendimentoUsuario> AtendimentosUsuarios { get; set; }
         public DbSet<Clinica> Clinicas { get; set; }
         public DbSet<ContatoUsuario> ContatosUsuarios { get; set; }
@@ -17,6 +18,16 @@ namespace WebApiChallenge.Context
         public DbSet<ImagemUsuario> ImagensUsuarios { get; set; }
         public DbSet<PrevisaoUsuario> PrevisoesUsuarios { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Usuario>().ToTable("Usuarios");
+            modelBuilder.Entity<Usuario>()
+                .Property(u => u.UsuarioId)
+                .ValueGeneratedOnAdd();
+
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
 }
