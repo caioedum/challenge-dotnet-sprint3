@@ -2,9 +2,9 @@
 
 ## 👥 Integrantes do Grupo
 
-- **Nome 1** - [Perfil do GitHub](https://github.com/usuario1)
-- **Nome 1** - [Perfil do GitHub](https://github.com/usuario1)
-- **Nome 1** - [Perfil do GitHub](https://github.com/usuario1)
+- **Caio Eduardo Nascimento Martins - RM554025**
+- **Julia Mariano Barsotti Ferreira - RM552713**
+- **Leonardo Gaspar Saheb - RM553383**
 
 ## 📌 Descrição do Projeto
 
