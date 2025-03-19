@@ -67,10 +67,15 @@ dotnet restore
 dotnet run
 ```
 **6️⃣ Acesse a API no navegador ou via Postman:**
+
+- **🔗 Endpoint padrão:**
 ```
-🔗 Endpoint padrão: http://localhost:5000
+http://localhost:5000
 ```
-### 📜 Documentação Swagger: http://localhost:5000/swagger
+- **📜 Documentação Swagger:**
+```
+http://localhost:5000/swagger
+```
 
 ## 📜 Licença
 
