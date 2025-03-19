@@ -10,12 +10,12 @@ namespace WebApiChallenge.Models
 
         public int? UsuarioId { get; set; }
 
-        public string? Nome { get; set; }
+        public string? NomeDentista { get; set; }
 
         public string? Especialidade { get; set; }
 
-        public string? Telefone { get; set; }
-        public string? Email { get; set; }
+        public string? TelefoneDentista { get; set; }
+        public string? EmailDentista { get; set; }
 
         // Relacionamentos
         public Usuario? Usuario { get; set; }

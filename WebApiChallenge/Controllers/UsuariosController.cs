@@ -4,6 +4,7 @@ using WebApiChallenge.DTO;
 using WebApiChallenge.Interfaces;
 using WebApiChallenge.Models;
 using WebApiChallenge.Repositories;
+namespace WebApiChallenge.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
