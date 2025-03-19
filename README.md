@@ -52,7 +52,11 @@ Certifique-se de ter instalado:
 **1️⃣ Clone o repositório:**
 ```
 git clone https://github.com/caioedum/challenge-dotnet-sprint3.git
+```
+```
 cd challenge-dotnet-sprint3
+```
+```
 cd WebApiChallenge
 ```
 **2️⃣ Restaurar pacotes NuGet:**
