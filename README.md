@@ -63,11 +63,11 @@ cd WebApiChallenge
 ```
 dotnet restore
 ```
-**4️⃣ Rodar a API:**
+**3️⃣ Rodar a API:**
 ```
 dotnet run
 ```
-**6️⃣ Acesse a API no navegador ou via Postman:**
+**4️⃣ Acesse a API no navegador ou via Postman:**
 
 - **🔗 Endpoint padrão:**
 ```
