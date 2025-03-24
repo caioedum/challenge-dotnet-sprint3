@@ -80,7 +80,7 @@ https://localhost:7185/swagger/index.html
 
 ## 📌 Endpoints da API
 
-🔹 Exemplos de Endpoints
+🔹 Endpoints:
 
 ### AtendimentosUsuarios
 
